@@ -1,5 +1,7 @@
 package com.example.my_online_store.model.entity;
 
+import com.example.my_online_store.model.entity.enums.KnownAuthority;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.example.my_online_store.model.exceptions.auth;
+package com.example.my_online_store.exceptions.auth;
 
 public class InvalidRefreshTokenException extends Exception {
     public InvalidRefreshTokenException() {
