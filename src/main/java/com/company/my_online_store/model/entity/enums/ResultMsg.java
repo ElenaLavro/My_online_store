@@ -1,4 +1,4 @@
-package com.site.my_online_store.model.entity.enums;
+package com.company.my_online_store.model.entity.enums;
 
 public enum ResultMsg {
     PARAN_ERROR(1, "Parameter Error!"),

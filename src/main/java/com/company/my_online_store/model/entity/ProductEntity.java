@@ -1,4 +1,4 @@
-package com.site.my_online_store.model.entity;
+package com.company.my_online_store.model.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;

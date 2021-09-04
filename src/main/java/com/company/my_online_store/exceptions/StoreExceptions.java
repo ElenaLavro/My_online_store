@@ -1,6 +1,6 @@
-package com.site.my_online_store.exceptions;
+package com.company.my_online_store.exceptions;
 
-import com.site.my_online_store.exceptions.auth.InvalidRefreshTokenException;
+import com.company.my_online_store.exceptions.auth.InvalidRefreshTokenException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 

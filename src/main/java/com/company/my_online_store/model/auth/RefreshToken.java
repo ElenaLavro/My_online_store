@@ -1,6 +1,6 @@
-package com.site.my_online_store.model.auth;
+package com.company.my_online_store.model.auth;
 
-import com.site.my_online_store.model.entity.User;
+import com.company.my_online_store.model.entity.User;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;

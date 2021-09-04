@@ -1,4 +1,4 @@
-package com.site.my_online_store.model.entity.enums;
+package com.company.my_online_store.model.entity.enums;
 
 public enum OrderStatus implements CodeEnum {
     NEW(0, "New Order"), FINISHED(1, "Finished"), CANCELED(2, "Canceled");

@@ -1,4 +1,4 @@
-package com.site.my_online_store.model.entity.enums;
+package com.company.my_online_store.model.entity.enums;
 
 public enum ProductStatus implements CodeEnum {
     UP(0, "Available"), DOWN(1, "Unavailable");

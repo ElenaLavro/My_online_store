@@ -1,4 +1,4 @@
-package com.site.my_online_store.model.auth.request;
+package com.company.my_online_store.model.auth.request;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 

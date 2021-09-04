@@ -1,6 +1,6 @@
-package com.site.my_online_store.model.entity;
+package com.company.my_online_store.model.entity;
 
-import com.site.my_online_store.model.entity.enums.KnownAuthority;
+import com.company.my_online_store.model.entity.enums.KnownAuthority;
 
 import javax.persistence.*;
 import java.util.HashSet;

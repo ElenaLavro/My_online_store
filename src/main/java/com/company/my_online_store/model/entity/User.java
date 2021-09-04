@@ -1,8 +1,8 @@
-package com.site.my_online_store.model.entity;
+package com.company.my_online_store.model.entity;
 
-import com.site.my_online_store.model.auth.RefreshToken;
-import com.site.my_online_store.model.entity.enums.KnownAuthority;
-import com.site.my_online_store.model.entity.enums.UserStatus;
+import com.company.my_online_store.model.auth.RefreshToken;
+import com.company.my_online_store.model.entity.enums.KnownAuthority;
+import com.company.my_online_store.model.entity.enums.UserStatus;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
