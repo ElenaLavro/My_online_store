@@ -160,6 +160,9 @@ public class User {
         this.cart = cart;
     }
 
+    public User() {
+    }
+
     @Override
     public int hashCode() {
         return email.hashCode();

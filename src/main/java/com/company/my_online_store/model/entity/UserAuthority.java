@@ -25,6 +25,9 @@ public class UserAuthority {
         return id.equals(that.id);
     }
 
+    public UserAuthority() {
+    }
+
     @Override
     public int hashCode() {
         return id.hashCode();
