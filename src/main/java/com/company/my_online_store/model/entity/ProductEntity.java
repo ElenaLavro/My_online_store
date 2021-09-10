@@ -8,15 +8,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.UUID;
 
 @Data
 @Entity
 @Table(name = "product")
 public class ProductEntity implements Serializable {
     @Id
-    @GeneratedValue
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -33,6 +32,9 @@ public class ProductEntity implements Serializable {
     @Column(name = "image", nullable = false)
     private String image;
 
+    @Column(name = "amount", nullable = false)
+    private Integer productAmount;
+
     @Column(name = "available", nullable = false)
     private Boolean availability;
 
@@ -45,11 +47,11 @@ public class ProductEntity implements Serializable {
     public ProductEntity() {
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -115,5 +117,13 @@ public class ProductEntity implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(Integer productAmount) {
+        this.productAmount = productAmount;
     }
 }

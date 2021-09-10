@@ -36,7 +36,7 @@ public class Order implements Serializable {
     private BigDecimal orderAmount;
 
     @Column(name = "status", nullable = false)
-    private Boolean orderStatus;
+    private Integer orderStatus;
 
     @CreationTimestamp
     @Column(name = "create_time")
@@ -105,11 +105,11 @@ public class Order implements Serializable {
         this.orderAmount = orderAmount;
     }
 
-    public Boolean getOrderStatus() {
+    public Integer getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(Boolean orderStatus) {
+    public void setOrderStatus(Integer orderStatus) {
         this.orderStatus = orderStatus;
     }
 

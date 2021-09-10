@@ -4,7 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Table(name = "product_in_order")
@@ -24,7 +23,7 @@ public class ProductInOrder {
     private Order order;
 
     @Column(name = "product_id", nullable = false)
-    private UUID productId;
+    private Long productId;
 
     @Column(name = "product_name", nullable = false)
     private String productName;
@@ -43,7 +42,6 @@ public class ProductInOrder {
     }
 
     public ProductInOrder(ProductEntity product, Integer quantity) {
-        this.productId = product.getId();
         this.productName = product.getName();
         this.productDescription = product.getDescription();
         this.price = product.getPrice();
@@ -108,11 +106,11 @@ public class ProductInOrder {
         this.order = order;
     }
 
-    public UUID getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(UUID productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
