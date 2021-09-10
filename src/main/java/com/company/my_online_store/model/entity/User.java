@@ -41,6 +41,10 @@ public class User {
     private String name;
 
     @NotEmpty
+    @Column(name = "role")
+    private String role = "ROLE_CUSTOMER";
+
+    @NotEmpty
     private String phone;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Cart cart;
@@ -55,6 +59,9 @@ public class User {
     @MapKeyEnumerated(EnumType.ORDINAL)
     @MapKey(name = "id")
     private Map<KnownAuthority, UserAuthority> authorities = new EnumMap<KnownAuthority, UserAuthority>(KnownAuthority.class);
+
+    public User() {
+    }
 
     public Long getId() {
         return id;
@@ -128,6 +135,14 @@ public class User {
         this.authorities = authorities;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -158,9 +173,6 @@ public class User {
 
     public void setCart(Cart cart) {
         this.cart = cart;
-    }
-
-    public User() {
     }
 
     @Override
