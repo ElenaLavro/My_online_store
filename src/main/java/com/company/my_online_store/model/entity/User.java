@@ -26,6 +26,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @NaturalId
     @Column(nullable = false, unique = true)
     private String nickname;
 
@@ -46,6 +47,7 @@ public class User {
 
     @NotEmpty
     private String phone;
+
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Cart cart;
 
@@ -53,7 +55,7 @@ public class User {
     private List<RefreshToken> refreshTokenList = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name = "user_authorities",
+    @JoinTable(name = "user_authority",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     @MapKeyEnumerated(EnumType.ORDINAL)

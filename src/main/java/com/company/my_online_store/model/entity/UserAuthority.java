@@ -10,22 +10,22 @@ import java.util.Set;
 @Table(name = "authorities")
 public class UserAuthority {
     @Id
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private KnownAuthority id;
 
-    @ManyToMany(mappedBy = "authorities")
+    @ManyToMany(mappedBy = "authority")
     @SuppressWarnings("FieldMayBeFinal")
     private Set<User> userSet = new HashSet<>();
 
-    @Override
-    public boolean equals(Object obj) {
-        if(this == obj) return true;
-        if(obj == null || getClass() != obj.getClass()) return false;
-        UserAuthority that = (UserAuthority) obj;
-        return id.equals(that.id);
+    public UserAuthority() {
     }
 
-    public UserAuthority() {
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        UserAuthority that = (UserAuthority) obj;
+        return id.equals(that.id);
     }
 
     @Override

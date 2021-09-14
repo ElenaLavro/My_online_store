@@ -1,6 +1,5 @@
 package com.company.my_online_store.model.entity;
 
-import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,7 +8,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Data
 @Entity
 @Table(name = "product")
 public class ProductEntity implements Serializable {

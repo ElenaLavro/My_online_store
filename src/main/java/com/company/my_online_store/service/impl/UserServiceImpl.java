@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
     @Autowired
     CartRepository cartRepository;
-    @Autowired
+
     private PasswordEncoder passwordEncoder;
 
     @Override

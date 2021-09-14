@@ -9,7 +9,13 @@ spring:
     username: postgres
     password: slovakia
     url: jdbc:postgresql://localhost:5432/store
+
   jpa:
     open-in-view: false
+
+  banner:
+    image:
+      invert: true
+
 
 

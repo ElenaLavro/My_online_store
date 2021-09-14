@@ -16,14 +16,17 @@ public class Cart implements Serializable {
     private Long cartId;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
+//    @MapsId
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "cart")
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, targetEntity = ProductInOrder.class)
     private Set<ProductInOrder> products = new HashSet<>();
+
 
     public Cart() {
     }
+
 
     public Cart(User user) {
         this.user = user;

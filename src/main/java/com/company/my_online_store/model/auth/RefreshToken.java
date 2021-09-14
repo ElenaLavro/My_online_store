@@ -17,23 +17,24 @@ public class RefreshToken {
     private UUID value;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id",nullable = false, referencedColumnName = "id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @Column(name = "issued_at", nullable = false)
     private OffsetDateTime issuedAt;
 
-    @Column(name = "expire_at",nullable = false)
+    @Column(name = "expire_at", nullable = false)
     private OffsetDateTime expireAt;
 
     @SuppressWarnings("FieldMayBeFinal")
-    @OneToMany(mappedBy = "next", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "next", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<RefreshToken> previous = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "next")
     @Access(AccessType.PROPERTY)
     private RefreshToken next;
+
 
     public UUID getValue() {
         return value;

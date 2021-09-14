@@ -6,13 +6,13 @@ import com.company.my_online_store.model.entity.enums.UserStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
+@Repository
 public interface UserRepository extends JpaRepository<User, String> {
     User findByEmail(String email);
 
-    Optional<User> findByNickname(String nickname);
+    User findByNickname(String nickname);
 
     boolean existsByEmail(String email);
 
