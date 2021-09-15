@@ -13,7 +13,7 @@ public class UserAuthority {
     @Column(nullable = false, unique = true)
     private KnownAuthority id;
 
-    @ManyToMany(mappedBy = "authority")
+    @ManyToMany(mappedBy = "authorities")
     @SuppressWarnings("FieldMayBeFinal")
     private Set<User> userSet = new HashSet<>();
 

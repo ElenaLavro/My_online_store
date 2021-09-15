@@ -24,12 +24,13 @@ public class JWTFilter extends OncePerRequestFilter {
     @Autowired
     private UserService userService;
 
+
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String jwt = getToken(request);
+    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        String jwt = getToken(httpServletRequest);
         if (jwt != null && jwtProvider.validate(jwt)) {
             try {
-                String userAccount = jwtProvider.getUSerAccount(jwt);
+                String userAccount = jwtProvider.getUserAccount(jwt);
                 User user = userService.findByEmail(userAccount);
                 SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(user.getRole());
                 ArrayList<SimpleGrantedAuthority> authorityArrayList = new ArrayList<>();
@@ -40,7 +41,7 @@ public class JWTFilter extends OncePerRequestFilter {
                 logger.error("Set authentication from JWT failed");
             }
         }
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(httpServletRequest, response);
     }
 
     private String getToken(HttpServletRequest request) {

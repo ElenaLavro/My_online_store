@@ -9,13 +9,21 @@ spring:
     username: postgres
     password: slovakia
     url: jdbc:postgresql://localhost:5432/store
+  queries:
+    users-query: select email, password, active from users where email=?
+    roles-query: select email, role from users where email=?
 
-  jpa:
-    open-in-view: false
+jwtSecret: olena.olena
+jwtExpiration: 86400
 
-  banner:
-    image:
-      invert: true
+
+
+jpa:
+  open-in-view: false
+
+banner:
+  image:
+    invert: true
 
 
 

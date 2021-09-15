@@ -18,7 +18,7 @@ public class ProductEntity implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "short_description", nullable = false)
     private String shortDescription;
 
     @Column(name = "description", nullable = false)

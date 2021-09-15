@@ -23,14 +23,14 @@ public class User {
     private Long id;
 
     @NaturalId
-    @Column(nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @NaturalId
-    @Column(nullable = false, unique = true)
+    @Column(name = "nickname", nullable = false, unique = true)
     private String nickname;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "active")
     @Enumerated(EnumType.ORDINAL)
     private UserStatus status = UserStatus.ACTIVE;
 
@@ -39,6 +39,7 @@ public class User {
     private String password;
 
     @NotEmpty
+    @Column(name = "name")
     private String name;
 
     @NotEmpty
@@ -46,6 +47,7 @@ public class User {
     private String role = "ROLE_CUSTOMER";
 
     @NotEmpty
+    @Column(name = "phone")
     private String phone;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -55,7 +57,7 @@ public class User {
     private List<RefreshToken> refreshTokenList = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name = "user_authority",
+    @JoinTable(name = "user_authorities",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
     @MapKeyEnumerated(EnumType.ORDINAL)

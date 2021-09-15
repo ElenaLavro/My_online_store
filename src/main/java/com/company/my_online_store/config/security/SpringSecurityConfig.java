@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -26,14 +27,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Qualifier("dataSource")
     DataSource dataSource;
     @Autowired
+    PasswordEncoder passwordEncoder;
+    @Autowired
     private JWTEntryPoint accessHandler;
     @Autowired
     private JWTFilter filter;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
     @Value("${spring.queries.users-query}")
     private String usersQuery;
-
     @Value("${spring.queries.roles-query}")
     private String rolesQuery;
 
@@ -62,6 +62,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
+    }
+
+    @Bean
+    BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
