@@ -2,7 +2,6 @@ server:
   error:
     include-message: always
     include-binding-errors: always
-
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -12,14 +11,15 @@ spring:
   queries:
     users-query: select email, password, active from users where email=?
     roles-query: select email, role from users where email=?
-
+  session:
+    jdbc:
+      initialize-schema: always
+  jpa:
+    open-in-view: false
 jwtSecret: olena.olena
 jwtExpiration: 86400
 
 
-
-jpa:
-  open-in-view: false
 
 banner:
   image:

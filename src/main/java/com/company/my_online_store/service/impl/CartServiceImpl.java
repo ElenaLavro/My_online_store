@@ -19,7 +19,7 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.Set;
 
-@Service
+@Service("cartService")
 public class CartServiceImpl implements CartService {
     @Autowired
     ProductService productService;

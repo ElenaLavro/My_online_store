@@ -18,7 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
+@Service("orderService")
 public class OrderServiceImpl implements OrderService {
     @Autowired
     OrderRepository orderRepository;
@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Page<Order> findByStatus(Boolean status, Pageable pageable) {
+    public Page<Order> findByStatus(Integer status, Pageable pageable) {
         return orderRepository.findAllByOrderStatusOrderByCreateTimeDesc(status, pageable);
     }
 
@@ -48,7 +48,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Page<Order> findByBuyerUsername(String username, Pageable pageable) {
-        return orderRepository.findAllByBuyerUsernameOrderByOrderStatusAscCreateTimeDesc(username, pageable);
+        return orderRepository.findAllBybuyerNameOrderByOrderStatusAscCreateTimeDesc(username, pageable);
     }
 
     @Override

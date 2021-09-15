@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-@Service
+@Service("productInOrderService")
 public class ProductInOrderServiceImpl implements ProductInOrderService {
     @Autowired
     ProductInOrderRepository productInOrderRepository;

@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository;
 public interface OrderRepository extends JpaRepository<Order, Long> {
     Order findByOrderId(Long id);
 
-    Page<Order> findAllByOrderStatusOrderByCreateTimeDesc(Boolean status, Pageable pageable);
+    Page<Order> findAllByOrderStatusOrderByCreateTimeDesc(Integer orderStatus, Pageable pageable);
 
     Page<Order> findAllByBuyerEmailOrderByOrderStatusAscCreateTimeDesc(String buyerEmail, Pageable pageable);
 
     Page<Order> findAllByOrderByOrderStatusAscCreateTimeDesc(Pageable pageable);
 
-    Page<Order> findAllByBuyerUsernameOrderByOrderStatusAscCreateTimeDesc(String username, Pageable pageable);
+    Page<Order> findAllBybuyerNameOrderByOrderStatusAscCreateTimeDesc(String username, Pageable pageable);
 }

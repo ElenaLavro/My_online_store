@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-@Service
+@Service("userService")
 @DependsOn("passwordEncoder")
 public class UserServiceImpl implements UserService {
     @Autowired

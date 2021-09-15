@@ -14,5 +14,5 @@ public interface ProductRepository extends JpaRepository<ProductEntity, String> 
     @Modifying
     ProductEntity findProductById(Long id);
 
-    Page<ProductEntity> findAllByOrderByProductId(Pageable pageable);
+    Page<ProductEntity> findAllByOrderById(Pageable pageable);
 }

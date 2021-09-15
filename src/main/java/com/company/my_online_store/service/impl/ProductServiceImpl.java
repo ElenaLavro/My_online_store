@@ -11,7 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
+@Service("productService")
 public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepository productRepository;
@@ -23,7 +23,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<ProductEntity> findAll(Pageable pageable) {
-        return productRepository.findAllByOrderByProductId(pageable);
+        return productRepository.findAllByOrderById(pageable);
     }
 
     @Override

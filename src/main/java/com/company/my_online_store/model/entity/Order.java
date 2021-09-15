@@ -18,7 +18,7 @@ public class Order implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long orderId;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "order")
     private Set<ProductInOrder> products = new HashSet<>();
@@ -57,12 +57,12 @@ public class Order implements Serializable {
     }
 
 
-    public Long getId() {
-        return id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setOrderId(Long id) {
+        this.orderId = id;
     }
 
     public Set<ProductInOrder> getProducts() {
